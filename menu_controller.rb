@@ -56,6 +56,21 @@ require_relative '../models/address_book'
      end
    end
 
+   def entry_n_submenu
+      print "Entry number to view: "
+      selection = gets.chomp.to_i
+
+      if selection < @address_book.enteries.count
+        puts "Press enter to return to the main menu"
+        gets.chomp
+        system "clear"
+      else
+        puts "#{{selection}} is not a valid input"
+        entry_n_submenu
+      end
+
+   end
+
  # #10
    def view_all_entries
      @address_book.entries.each do |entry|
